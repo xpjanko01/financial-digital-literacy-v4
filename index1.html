@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Enhancing Financial Digital Literacy in the V4</title>
+  <meta name="description" content="Enhancing Financial Digital Literacy in the V4: Building Digital Competencies for Financial Security" />
+  <style>
+    :root{
+      --bg:#0b1220;
+      --panel:#101a33;
+      --text:#e9eefc;
+      --muted:#b9c4e6;
+      --brand:#7aa2ff;
+      --brand2:#55d6be;
+      --line: rgba(255,255,255,.10);
+      --shadow: 0 18px 55px rgba(0,0,0,.35);
+      --radius: 18px;
+      --max: 1120px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+    }
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: var(--sans);
+      background:
+        radial-gradient(1200px 800px at 20% 10%, rgba(122,162,255,.22), transparent 55%),
+        radial-gradient(900px 700px at 90% 30%, rgba(85,214,190,.16), transparent 55%),
+        radial-gradient(800px 600px at 40% 95%, rgba(122,162,255,.12), transparent 60%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+    a{ color: var(--text); text-decoration:none; }
+    a:hover{ color: var(--brand); }
+    .wrap{ max-width: var(--max); margin: 0 auto; padding: 0 18px; }
+    header{
+      position: sticky; top:0; z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(11,18,32,.72);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 14px 0;
+      gap: 16px;
+    }
+    .brand{
+      display:flex; align-items:center; gap: 12px; min-width: 250px;
+    }
+    .brand img{
+      width: 38px; height: 38px; object-fit:contain;
+      filter: drop-shadow(0 6px 18px rgba(0,0,0,.35));
+    }
+    .brand .title{
+      display:flex; flex-direction:column;
+      line-height: 1.15;
+    }
+    .brand .title strong{ font-size: 14px; letter-spacing:.2px; }
+    .brand .title span{ font-size: 12px; color: var(--muted); }
+    nav ul{
+      list-style:none; padding:0; margin:0;
+      display:flex; gap: 14px; flex-wrap:wrap; justify-content:flex-end;
+    }
+    nav a{
+      font-size: 13px; color: var(--muted);
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+    }
+    nav a:hover{
+      color: var(--text);
+      border-color: var(--line);
+      background: rgba(255,255,255,.05);
+    }
+    .hero{
+      padding: 54px 0 22px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 18px;
+      align-items:stretch;
+    }
+    .card{
+      background: rgba(16,26,51,.82);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .hero-main{
+      padding: 28px 26px;
+      overflow:hidden;
+      position:relative;
+    }
+    .kicker{
+      display:inline-flex; align-items:center; gap:10px;
+      font-size: 12px; color: var(--muted);
+      padding: 7px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.04);
+    }
+    .dot{
+      width: 10px; height: 10px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      box-shadow: 0 0 0 4px rgba(122,162,255,.15);
+    }
+    h1{
+      margin: 14px 0 10px;
+      font-size: 34px;
+      line-height: 1.12;
+      letter-spacing: .2px;
+    }
+    .sub{
+      color: var(--muted);
+      font-size: 15px;
+      max-width: 62ch;
+      margin: 0 0 16px;
+    }
+    .cta{
+      display:flex; gap: 12px; flex-wrap:wrap;
+      margin-top: 16px;
+    }
+    .btn{
+      display:inline-flex; align-items:center; gap:10px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+      font-size: 13px;
+    }
+    .btn.primary{
+      border-color: rgba(122,162,255,.45);
+      background: linear-gradient(135deg, rgba(122,162,255,.24), rgba(85,214,190,.14));
+    }
+    .btn .ic{
+      font-family: var(--mono);
+      font-size: 12px;
+      color: rgba(233,238,252,.9);
+      border: 1px solid var(--line);
+      padding: 2px 6px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.04);
+    }
+    .hero-side{
+      padding: 18px;
+      display:flex;
+      flex-direction:column;
+      gap: 12px;
+    }
+    .stat{
+      padding: 14px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
+    .stat b{ display:block; font-size: 13px; margin-bottom: 4px; }
+    .stat span{ color: var(--muted); font-size: 12.5px; }
+    .section{
+      padding: 22px 0;
+    }
+    .section h2{
+      margin: 0 0 12px;
+      font-size: 20px;
+      letter-spacing:.2px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+    }
+    .col-6{ grid-column: span 6; }
+    .col-4{ grid-column: span 4; }
+    .col-8{ grid-column: span 8; }
+    .col-12{ grid-column: span 12; }
+    .panel{
+      padding: 18px 18px;
+    }
+    .panel p{ margin: 0 0 10px; color: var(--muted); font-size: 14px; }
+    .chips{
+      display:flex; flex-wrap:wrap; gap: 8px;
+      margin-top: 12px;
+    }
+    .chip{
+      font-size: 12px;
+      color: rgba(233,238,252,.92);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 10px;
+      background: rgba(255,255,255,.03);
+    }
+    .list{
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .list li{ margin: 6px 0; }
+    .mini{
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .hr{
+      height:1px; background: var(--line);
+      margin: 16px 0;
+    }
+    .partners{
+      display:grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 12px;
+    }
+    .logo{
+      display:flex; align-items:center; justify-content:center;
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      min-height: 70px;
+    }
+    .logo img{
+      max-width: 140px;
+      max-height: 46px;
+      object-fit: contain;
+      opacity: .95;
+      filter: drop-shadow(0 10px 22px rgba(0,0,0,.25));
+    }
+    .news-item{
+      border-top: 1px solid var(--line);
+      padding-top: 12px;
+      margin-top: 12px;
+    }
+    .news-item:first-child{
+      border-top: 0; padding-top: 0; margin-top: 0;
+    }
+    .news-item b{ display:block; font-size: 14px; margin-bottom: 4px; }
+    .news-item span{ color: var(--muted); font-size: 13px; }
+    footer{
+      padding: 26px 0 34px;
+      color: var(--muted);
+      font-size: 12px;
+      border-top: 1px solid var(--line);
+      margin-top: 22px;
+    }
+    .foot{
+      display:flex; gap: 12px; flex-wrap:wrap;
+      justify-content:space-between; align-items:center;
+    }
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      border: 1px solid var(--line);
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.03);
+    }
+    @media (max-width: 940px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .partners{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .col-6,.col-4,.col-8{ grid-column: span 12; }
+      h1{ font-size: 30px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap">
+      <div class="nav">
+        <div class="brand">
+          <!-- Replace with your faculty/project logo -->
+          <img src="assets/logo-fbm-but.png" alt="FBM BUT logo" />
+          <div class="title">
+            <strong>Enhancing Financial Digital Literacy in the V4</strong>
+            <span>Building Digital Competencies for Financial Security</span>
+          </div>
+        </div>
+
+        <nav aria-label="Primary navigation">
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#objectives">Objectives</a></li>
+            <li><a href="#wps">Work Packages</a></li>
+            <li><a href="#outputs">Outputs</a></li>
+            <li><a href="#partners">Partners</a></li>
+            <li><a href="#news">News</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div class="card hero-main">
+            <div class="kicker"><span class="dot"></span>International project • V4 focus • Digital financial resilience</div>
+            <h1>Digital skills that protect financial decisions — across the V4.</h1>
+            <p class="sub">
+              The project develops a practical, evidence-based framework to measure and improve
+              <b>financial digital literacy</b>—the ability to navigate modern digital financial services,
+              recognize manipulative content, and make safe, informed choices in online environments.
+            </p>
+            <div class="cta">
+              <a class="btn primary" href="#outputs"><span class="ic">→</span> See planned outputs</a>
+              <a class="btn" href="#resources"><span class="ic">PDF</span> Download materials</a>
+              <a class="btn" href="#contact"><span class="ic">@</span> Contact the team</a>
+            </div>
+          </div>
+
+          <div class="card hero-side">
+            <div class="stat">
+              <b>Scope</b>
+              <span>V4 countries • universities, educators, and general public</span>
+            </div>
+            <div class="stat">
+              <b>Core pillars</b>
+              <span>Measurement • education toolkit • scalable digital platform</span>
+            </div>
+            <div class="stat">
+              <b>Focus</b>
+              <span>Behavioral risks, online misinformation, and decision support in personal finance</span>
+            </div>
+            <div class="stat">
+              <b>Methods</b>
+              <span>Text & sentiment analytics, ML, and decision-analytics frameworks for policy and practice</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="wrap">
+        <div class="grid">
+          <div class="card panel col-8">
+            <h2>About the project</h2>
+            <p>
+              Digital finance is now the default—payments, investing apps, online lending, and platform-based services.
+              This shift creates new opportunities, but also new vulnerabilities: scams, dark patterns, pseudo-advice,
+              and misinformation that can amplify risky behavior and financial loss.
+            </p>
+            <p>
+              Our project addresses these challenges by combining economic and behavioral perspectives with
+              data-driven methods. We aim to deliver tools that are useful not only for researchers, but also for
+              educators, institutions, and policy makers.
+            </p>
+            <div class="chips">
+              <span class="chip">platform economy</span>
+              <span class="chip">consumer finance</span>
+              <span class="chip">misinformation risk</span>
+              <span class="chip">behavioral signals</span>
+              <span class="chip">decision support</span>
+              <span class="chip">V4 comparability</span>
+            </div>
+          </div>
+
+          <div class="card panel col-4">
+            <h2>Quick facts</h2>
+            <p class="mini"><b>Project title:</b> Enhancing Financial Digital Literacy in the V4</p>
+            <p class="mini"><b>Tagline:</b> Building Digital Competencies for Financial Security</p>
+            <p class="mini"><b>Theme:</b> Digital transformation, skills, and trust in financial ecosystems</p>
+            <div class="hr"></div>
+            <p class="mini">
+              Replace this box with your grant information (funding scheme, duration, ID, budget) once you want it public.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="objectives" class="section">
+      <div class="wrap">
+        <div class="grid">
+          <div class="card panel col-6">
+            <h2>Main objectives</h2>
+            <ul class="list">
+              <li>Develop a clear, comparable definition of <b>financial digital literacy</b> for the V4 context.</li>
+              <li>Design a measurement approach (index + questionnaire) capturing skills, biases, and exposure to digital risks.</li>
+              <li>Create educational modules and practical guidance for universities, educators, and the public.</li>
+              <li>Provide a scalable digital toolset enabling evidence-based interventions and monitoring.</li>
+            </ul>
+          </div>
+
+          <div class="card panel col-6">
+            <h2>Why it matters (economic angle)</h2>
+            <ul class="list">
+              <li>Lower trust and higher information frictions increase transaction and screening costs in financial markets.</li>
+              <li>Misinformation can distort financial choices, asset allocation, and household welfare—especially online.</li>
+              <li>Better digital financial literacy supports resilience, reduces consumer harm, and strengthens the ecosystem.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="wps" class="section">
+      <div class="wrap">
+        <div class="grid">
+          <div class="card panel col-12">
+            <h2>Work packages (draft structure)</h2>
+            <div class="grid">
+              <div class="card panel col-4">
+                <h3 style="margin:0 0 6px; font-size:16px;">WP1 — Concept & Framework</h3>
+                <p>Define financial digital literacy for the V4 and map key risk channels (platform design, misinformation, behavioral biases).</p>
+              </div>
+              <div class="card panel col-4">
+                <h3 style="margin:0 0 6px; font-size:16px;">WP2 — Measurement & Index</h3>
+                <p>Design the index, survey modules, and a validation strategy to ensure cross-country comparability.</p>
+              </div>
+              <div class="card panel col-4">
+                <h3 style="margin:0 0 6px; font-size:16px;">WP3 — Data & Analytics</h3>
+                <p>Use modern analytics (incl. text/sentiment signals where relevant) to understand risk exposure and decision patterns.</p>
+              </div>
+
+              <div class="card panel col-4">
+                <h3 style="margin:0 0 6px; font-size:16px;">WP4 — Education Toolkit</h3>
+                <p>Create practical modules, case studies, and exercises for higher education and public-facing learning.</p>
+              </div>
+              <div class="card panel col-4">
+                <h3 style="margin:0 0 6px; font-size:16px;">WP5 — Digital Platform</h3>
+                <p>Implement a web-based interface for learning, self-assessment, and dissemination of results.</p>
+              </div>
+              <div class="card panel col-4">
+                <h3 style="margin:0 0 6px; font-size:16px;">WP6 — Dissemination & Policy</h3>
+                <p>Translate results into actionable recommendations for institutions, educators, and policy stakeholders.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="outputs" class="section">
+      <div class="wrap">
+        <div class="grid">
+          <div class="card panel col-6">
+            <h2>Planned outputs</h2>
+            <ul class="list">
+              <li>Financial Digital Literacy Index (V4-ready) + methodology.</li>
+              <li>Survey instrument and documentation for replication.</li>
+              <li>Educational toolkit (modules, case studies, exercises).</li>
+              <li>Online platform for self-assessment and learning.</li>
+              <li>Academic papers and practitioner-oriented briefs.</li>
+            </ul>
+          </div>
+
+          <div class="card panel col-6">
+            <h2>Impact (what success looks like)</h2>
+            <ul class="list">
+              <li>Better identification of vulnerable groups and risk drivers in digital finance.</li>
+              <li>Evidence-based improvements in education and training content.</li>
+              <li>Stronger resilience against scams, manipulation, and misinformation.</li>
+              <li>Higher trust and more efficient decision-making within the financial ecosystem.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="partners" class="section">
+      <div class="wrap">
+        <div class="grid">
+          <div class="card panel col-12">
+            <h2>Partners (placeholders)</h2>
+            <p>Insert partner logos and names here. If you want, I’ll format a clean “partners” block once you send the list.</p>
+            <div class="partners">
+              <div class="logo"><img src="assets/logo_partner_1.png" alt="Partner 1" /></div>
+              <div class="logo"><img src="assets/logo_partner_2.png" alt="Partner 2" /></div>
+              <div class="logo"><img src="assets/logo_partner_3.png" alt="Partner 3" /></div>
+              <div class="logo"><img src="assets/logo_partner_4.png" alt="Partner 4" /></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="news" class="section">
+      <div class="wrap">
+        <div class="grid">
+          <div class="card panel col-8">
+            <h2>News</h2>
+
+            <div class="news-item">
+              <b>Project approved / launched</b>
+              <span>Short note about the start of the project and next steps. (Replace with your real update.)</span>
+            </div>
+
+            <div class="news-item">
+              <b>First workshop / meeting</b>
+              <span>Announcement of the first cross-country coordination meeting and initial deliverables.</span>
+            </div>
+
+            <div class="news-item">
+              <b>Survey preparation</b>
+              <span>Information about survey pilot, sampling strategy, and timeline.</span>
+            </div>
+          </div>
+
+          <div class="card panel col-4">
+            <h2>Press / downloads</h2>
+            <ul class="list">
+              <li><a href="#">Project one-pager (PDF)</a></li>
+              <li><a href="#">Survey overview (PDF)</a></li>
+              <li><a href="#">Methodology note (PDF)</a></li>
+              <li><a href="#">Policy brief (PDF)</a></li>
+            </ul>
+            <p class="mini" style="margin-top:12px;">(Add links once files exist.)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="events" class="section">
+      <div class="wrap">
+        <div class="grid">
+          <div class="card panel col-12">
+            <h2>Events</h2>
+            <p class="mini">Use this section for workshops, webinars, invited talks, and training sessions. Example structure:</p>
+            <ul class="list">
+              <li><b>Kick-off meeting</b> — date, city/online, brief agenda</li>
+              <li><b>Methodology workshop</b> — date, target audience (educators / policy / students)</li>
+              <li><b>Public webinar</b> — date, theme (digital scams, misinformation, safe investing online)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="resources" class="section">
+      <div class="wrap">
+        <div class="grid">
+          <div class="card panel col-12">
+            <h2>Resources</h2>
+            <p>
+              This repository section can host open materials (where applicable): definitions, checklists, short guides,
+              datasets (if sharable), and teaching materials. If some materials are restricted, you can still provide
+              public summaries and contact details for access requests.
+            </p>
+            <div class="chips">
+              <span class="chip">glossary</span>
+              <span class="chip">teaching slides</span>
+              <span class="chip">case studies</span>
+              <span class="chip">survey documentation</span>
+              <span class="chip">policy briefs</span>
+              <span class="chip">open science (where possible)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="wrap">
+        <div class="grid">
+          <div class="card panel col-6">
+            <h2>Contact</h2>
+            <p class="mini"><b>Project coordination:</b> (name), (institution)</p>
+            <p class="mini"><b>Email:</b> (email)</p>
+            <p class="mini"><b>Address:</b> (address)</p>
+            <div class="hr"></div>
+            <p class="mini">
+              If you want, I can rewrite this into a clean “Contact card” format once you share the official contact details.
+            </p>
+          </div>
+
+          <div class="card panel col-6">
+            <h2>Acknowledgement</h2>
+            <p>
+              Add your funding acknowledgement text here once you have the official wording and required logos.
+            </p>
+            <p class="mini">
+              Tip: keep a short public version for the website + a full official version for PDFs/presentations.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot">
+        <div class="badge">
+          <span class="dot"></span>
+          <span>© <span id="y"></span> Enhancing Financial Digital Literacy in the V4</span>
+        </div>
+        <div class="mini">Built for academic dissemination • Minimal, accessible, and easy to maintain.</div>
+      </div>
+    </div>
+    <script>
+      document.getElementById('y').textContent = new Date().getFullYear();
+    </script>
+  </footer>
+</body>
+</html>

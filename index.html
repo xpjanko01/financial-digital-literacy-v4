@@ -225,25 +225,27 @@
       background: rgba(255,255,255,.03);
       margin-top: 12px;
     }
-    .funding-left{
-      display:flex;
-      align-items:center;
-      gap: 12px;
-      min-width: 240px;
-    }
+.funding-left{
+  display:flex;
+  align-items:center;
+  gap: 18px;        /* větší mezera mezi logem a textem */
+  min-width: 320px;
+
+}
     /* Bigger funding logo */
-    .funding-left img{
-      width: 84px;
-      height: 84px;
-      object-fit: contain;
-      filter: drop-shadow(0 10px 22px rgba(0,0,0,.25));
-      opacity: .98;
-    }
+.funding-left img{
+  width: 150px;          /* výrazně větší logo */
+  height: auto;          /* zachová poměr stran */
+  max-height: 90px;      /* ochrana proti přerůstání */
+  object-fit: contain;
+  filter: drop-shadow(0 8px 20px rgba(0,0,0,.35));
+  opacity: 1;
+}
     .funding-left .f-title{
       display:flex; flex-direction:column; line-height:1.2;
     }
-    .funding-left .f-title strong{ font-size: 13px; }
-    .funding-left .f-title span{ font-size: 12px; color: var(--muted); }
+    .funding-left .f-title strong{ font-size: 15px; }
+    .funding-left .f-title span{ font-size: 13px; color: var(--muted); }
     .funding-right{
       display:flex;
       flex-wrap:wrap;
@@ -470,8 +472,8 @@ By combining data-driven analysis with hands-on digital education, the project s
 
             <div class="funding">
               <div class="funding-left">
-                <!-- Put the official logo file into /assets/visegradfund1-logo.jpg -->
-                <img src="assets/visegradfund1-logo.jpg" alt="International Visegrad Fund logo" />
+                <!-- Put the official logo file into /assets/visegradfund3-logo.jpg -->
+                <img src="assets/visegradfund3-logo.jpg" alt="International Visegrad Fund logo" />
                 <div class="f-title">
                   <strong>Supported by the International Visegrad Fund</strong>
                   <span><a href="https://www.visegradfund.org/" target="_blank" rel="noopener">www.visegradfund.org</a></span>

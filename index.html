@@ -43,22 +43,23 @@
     }
     .nav{
       display:flex; align-items:center; justify-content:space-between;
-      padding: 14px 0;
+      padding: 18px 0;
       gap: 16px;
     }
     .brand{
       display:flex; align-items:center; gap: 12px; min-width: 250px;
     }
+    /* Bigger logo in header */
     .brand img{
-      width: 38px; height: 38px; object-fit:contain;
+      width: 110px; height: auto; object-fit:contain;
       filter: drop-shadow(0 6px 18px rgba(0,0,0,.35));
     }
     .brand .title{
       display:flex; flex-direction:column;
       line-height: 1.15;
     }
-    .brand .title strong{ font-size: 14px; letter-spacing:.2px; }
-    .brand .title span{ font-size: 12px; color: var(--muted); }
+    .brand .title strong{ font-size: 16px; letter-spacing:.3px; }
+    .brand .title span{ font-size: 13px; color: var(--muted); }
     nav ul{
       list-style:none; padding:0; margin:0;
       display:flex; gap: 14px; flex-wrap:wrap; justify-content:flex-end;
@@ -74,10 +75,12 @@
       border-color: var(--line);
       background: rgba(255,255,255,.05);
     }
+
     .hero{ padding: 54px 0 22px; }
+    /* Hero is now single-column (right-side stats removed) */
     .hero-grid{
       display:grid;
-      grid-template-columns: 1.2fr .8fr;
+      grid-template-columns: 1fr;
       gap: 18px;
       align-items:stretch;
     }
@@ -107,12 +110,12 @@
       line-height: 1.12;
       letter-spacing: .2px;
     }
-    .sub{
-      color: var(--muted);
-      font-size: 15px;
-      max-width: 62ch;
-      margin: 0 0 16px;
-    }
+.sub{
+  color: var(--muted);
+  font-size: 16px;
+  max-width: 120ch;      /* ⬅ výrazně širší */
+  margin: 0 0 18px;
+}
     .cta{ display:flex; gap: 12px; flex-wrap:wrap; margin-top: 16px; }
     .btn{
       display:inline-flex; align-items:center; gap:10px;
@@ -136,15 +139,7 @@
       border-radius: 999px;
       background: rgba(255,255,255,.04);
     }
-    .hero-side{ padding: 18px; display:flex; flex-direction:column; gap: 12px; }
-    .stat{
-      padding: 14px 14px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.03);
-    }
-    .stat b{ display:block; font-size: 13px; margin-bottom: 4px; }
-    .stat span{ color: var(--muted); font-size: 12.5px; }
+
     .section{ padding: 22px 0; }
     .section h2{ margin: 0 0 12px; font-size: 20px; letter-spacing:.2px; }
     .grid{
@@ -172,6 +167,7 @@
     .mini{ font-size: 12px; color: var(--muted); }
     .hr{ height:1px; background: var(--line); margin: 16px 0; }
 
+    /* Partner link cards */
     .partners{
       display:grid;
       grid-template-columns: repeat(4, minmax(0,1fr));
@@ -192,6 +188,31 @@
     .partner-card a{ color: var(--muted); font-size: 12.5px; }
     .partner-card a:hover{ color: var(--brand); }
 
+    /* Partner logos grid */
+    .partner-logos{
+      display:grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .partner-logo{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      min-height: 90px;
+    }
+    .partner-logo img{
+      max-width: 180px;
+      max-height: 70px;
+      object-fit: contain;
+      opacity: .98;
+      filter: drop-shadow(0 10px 22px rgba(0,0,0,.25));
+    }
+
     /* Funding block */
     .funding{
       display:flex;
@@ -210,9 +231,10 @@
       gap: 12px;
       min-width: 240px;
     }
+    /* Bigger funding logo */
     .funding-left img{
-      width: 56px;
-      height: 56px;
+      width: 84px;
+      height: 84px;
       object-fit: contain;
       filter: drop-shadow(0 10px 22px rgba(0,0,0,.25));
       opacity: .98;
@@ -247,9 +269,10 @@
       border-radius: 999px;
       background: rgba(255,255,255,.03);
     }
+
     @media (max-width: 940px){
-      .hero-grid{ grid-template-columns: 1fr; }
       .partners{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .partner-logos{ grid-template-columns: repeat(2, minmax(0,1fr)); }
       .col-6,.col-4,.col-8{ grid-column: span 12; }
       h1{ font-size: 30px; }
       .funding{ flex-direction:column; align-items:flex-start; }
@@ -263,7 +286,7 @@
     <div class="wrap">
       <div class="nav">
         <div class="brand">
-          <!-- Replace with your project/host logo -->
+          <!-- Replace with your logo file placed in /assets -->
           <img src="assets/visegradfund2-logo.png" alt="Visegrad Fund Logo" />
           <div class="title">
             <strong>Enhancing Financial Digital Literacy in the V4</strong>
@@ -279,9 +302,6 @@
             <li><a href="#outputs">Outputs</a></li>
             <li><a href="#partners">Partners</a></li>
             <li><a href="#funding">Funding</a></li>
-            <li><a href="#news">News</a></li>
-            <li><a href="#events">Events</a></li>
-            <li><a href="#resources">Resources</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </nav>
@@ -307,25 +327,7 @@
               <a class="btn" href="#contact"><span class="ic">@</span> Contact the team</a>
             </div>
           </div>
-
-          <div class="card hero-side">
-            <div class="stat">
-              <b>Scope</b>
-              <span>V4 countries • universities, educators, and general public</span>
-            </div>
-            <div class="stat">
-              <b>Core pillars</b>
-              <span>Measurement • education toolkit • scalable digital platform</span>
-            </div>
-            <div class="stat">
-              <b>Focus</b>
-              <span>Digital finance risks, scams, misinformation, and decision support</span>
-            </div>
-            <div class="stat">
-              <b>Methods</b>
-              <span>Data analytics, behavioral insights, and AI-ready content for learning & evaluation</span>
-            </div>
-          </div>
+          <!-- hero-side removed (Scope/Core pillars/Focus/Methods) -->
         </div>
       </div>
     </section>
@@ -430,33 +432,6 @@
       </div>
     </section>
 
-    <section id="outputs" class="section">
-      <div class="wrap">
-        <div class="grid">
-          <div class="card panel col-6">
-            <h2>Planned outputs</h2>
-            <ul class="list">
-              <li>Financial Digital Literacy Index (V4-ready) + methodology.</li>
-              <li>Survey instrument and documentation for replication.</li>
-              <li>Educational toolkit (modules, case studies, exercises).</li>
-              <li>Online platform for self-assessment and learning.</li>
-              <li>Academic papers and practitioner-oriented briefs.</li>
-            </ul>
-          </div>
-
-          <div class="card panel col-6">
-            <h2>Impact</h2>
-            <ul class="list">
-              <li>Better identification of vulnerable groups and risk drivers in digital finance.</li>
-              <li>Evidence-based improvements in education and training content.</li>
-              <li>Stronger resilience against scams, manipulation, and misinformation.</li>
-              <li>Higher trust and more efficient decision-making within financial ecosystems.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section id="partners" class="section">
       <div class="wrap">
         <div class="grid">
@@ -466,7 +441,7 @@
 
             <div class="partners">
               <div class="partner-card">
-                <b>University of Economics in Bratislava (Applicant)</b>
+                <b>Bratislava University of Economics and Business (Applicant)</b>
                 <a href="https://fhi.euba.sk/en/" target="_blank" rel="noopener">https://fhi.euba.sk/en/</a>
               </div>
 
@@ -486,9 +461,8 @@
               </div>
             </div>
 
-            <p class="mini" style="margin-top:12px;">
-              (If you want, we can later add partner logos here as well — same layout, just with images.)
-            </p>
+            <p class="mini" style="margin-top:10px;">
+                         </p>
           </div>
         </div>
       </div>
@@ -502,7 +476,7 @@
 
             <div class="funding">
               <div class="funding-left">
-                <!-- Put the official logo file into /assets/visegradfund1-logo.png -->
+                <!-- Put the official logo file into /assets/visegradfund1-logo.jpg -->
                 <img src="assets/visegradfund1-logo.jpg" alt="International Visegrad Fund logo" />
                 <div class="f-title">
                   <strong>Supported by the International Visegrad Fund</strong>
@@ -516,8 +490,6 @@
               </div>
             </div>
 
-            <p class="mini" style="margin-top:10px;">
-            </p>
           </div>
         </div>
       </div>
@@ -528,9 +500,9 @@
         <div class="grid">
           <div class="card panel col-12">
             <h2>Contact</h2>
-            <p class="mini"><b>Project coordination:</b> (name), (institution)</p>
-            <p class="mini"><b>Email:</b> (email)</p>
-            <p class="mini"><b>Address:</b> (address)</p>
+            <p class="mini"><b>Project coordination:</b> Silvia Komara, Bratislava University of Economics and Business</p>
+            <p class="mini"><b>Email:</b> <a href="mailto:silvia.komara@euba.sk">silvia.komara@euba.sk</a></p>
+            <p class="mini"><b>Address:</b> Dolnozemská cesta 1a, Bratislava, 852 01, Slovakia</p>
           </div>
         </div>
       </div>

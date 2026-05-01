@@ -49,7 +49,6 @@
     .brand{
       display:flex; align-items:center; gap: 12px; min-width: 250px;
     }
-    /* Bigger logo in header */
     .brand img{
       width: 110px; height: auto; object-fit:contain;
       filter: drop-shadow(0 6px 18px rgba(0,0,0,.35));
@@ -77,7 +76,6 @@
     }
 
     .hero{ padding: 54px 0 22px; }
-    /* Hero is now single-column (right-side stats removed) */
     .hero-grid{
       display:grid;
       grid-template-columns: 1fr;
@@ -110,12 +108,12 @@
       line-height: 1.12;
       letter-spacing: .2px;
     }
-.sub{
-  color: var(--muted);
-  font-size: 16px;
-  max-width: 120ch;      /* ⬅ výrazně širší */
-  margin: 0 0 18px;
-}
+    .sub{
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 120ch;
+      margin: 0 0 18px;
+    }
     .cta{ display:flex; gap: 12px; flex-wrap:wrap; margin-top: 16px; }
     .btn{
       display:inline-flex; align-items:center; gap:10px;
@@ -167,7 +165,26 @@
     .mini{ font-size: 12px; color: var(--muted); }
     .hr{ height:1px; background: var(--line); margin: 16px 0; }
 
-    /* Partner link cards */
+    .news-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 18px;
+      align-items:start;
+      margin-top: 12px;
+    }
+    .news-grid h3{
+      margin:0 0 8px;
+      font-size:17px;
+    }
+    .news-img{
+      width:100%;
+      max-height:360px;
+      object-fit:cover;
+      border-radius:14px;
+      border:1px solid var(--line);
+      box-shadow: 0 12px 32px rgba(0,0,0,.28);
+    }
+
     .partners{
       display:grid;
       grid-template-columns: repeat(4, minmax(0,1fr));
@@ -188,7 +205,6 @@
     .partner-card a{ color: var(--muted); font-size: 12.5px; }
     .partner-card a:hover{ color: var(--brand); }
 
-    /* Partner logos grid */
     .partner-logos{
       display:grid;
       grid-template-columns: repeat(4, minmax(0,1fr));
@@ -213,7 +229,6 @@
       filter: drop-shadow(0 10px 22px rgba(0,0,0,.25));
     }
 
-    /* Funding block */
     .funding{
       display:flex;
       align-items:center;
@@ -225,22 +240,20 @@
       background: rgba(255,255,255,.03);
       margin-top: 12px;
     }
-.funding-left{
-  display:flex;
-  align-items:center;
-  gap: 18px;        /* větší mezera mezi logem a textem */
-  min-width: 320px;
-
-}
-    /* Bigger funding logo */
-.funding-left img{
-  width: 150px;          /* výrazně větší logo */
-  height: auto;          /* zachová poměr stran */
-  max-height: 90px;      /* ochrana proti přerůstání */
-  object-fit: contain;
-  filter: drop-shadow(0 8px 20px rgba(0,0,0,.35));
-  opacity: 1;
-}
+    .funding-left{
+      display:flex;
+      align-items:center;
+      gap: 18px;
+      min-width: 320px;
+    }
+    .funding-left img{
+      width: 150px;
+      height: auto;
+      max-height: 90px;
+      object-fit: contain;
+      filter: drop-shadow(0 8px 20px rgba(0,0,0,.35));
+      opacity: 1;
+    }
     .funding-left .f-title{
       display:flex; flex-direction:column; line-height:1.2;
     }
@@ -276,6 +289,7 @@
       .partners{ grid-template-columns: repeat(2, minmax(0,1fr)); }
       .partner-logos{ grid-template-columns: repeat(2, minmax(0,1fr)); }
       .col-6,.col-4,.col-8{ grid-column: span 12; }
+      .news-grid{ grid-template-columns: 1fr; }
       h1{ font-size: 30px; }
       .funding{ flex-direction:column; align-items:flex-start; }
       .funding-right{ justify-content:flex-start; }
@@ -288,7 +302,6 @@
     <div class="wrap">
       <div class="nav">
         <div class="brand">
-          <!-- Replace with your logo file placed in /assets -->
           <img src="assets/visegradfund2-logo.png" alt="Visegrad Fund Logo" />
           <div class="title">
             <strong>Enhancing Financial Digital Literacy in the V4</strong>
@@ -299,6 +312,7 @@
         <nav aria-label="Primary navigation">
           <ul>
             <li><a href="#about">About</a></li>
+            <li><a href="#news">News</a></li>
             <li><a href="#objectives">Objectives</a></li>
             <li><a href="#wps">Work Packages</a></li>
             <li><a href="#partners">Partners</a></li>
@@ -318,7 +332,7 @@
             <div class="kicker"><span class="dot"></span>International project • V4 focus • Digital financial resilience</div>
             <h1>Enhancing Financial Digital Literacy in the V4: Building Digital Competencies for Financial Security</h1>
             <p class="sub">
-              Despite advancements in digital finance within V4 countries, a substantial gap in financial digital literacy persists, increasing financialvulnerability and limiting the ability to use modern financial technologies, especially among young adults. Financial digital literacy involvessafely using digital financial services like online banking, digital payments, budgeting tools, and understanding financial risks. However,educational frameworks in V4 countries often lag, resulting in disparities in financial security and digital inclusion. The project develops a practical, evidence-based framework to measure and improve
+              Despite advancements in digital finance within V4 countries, a substantial gap in financial digital literacy persists, increasing financial vulnerability and limiting the ability to use modern financial technologies, especially among young adults. Financial digital literacy involves safely using digital financial services like online banking, digital payments, budgeting tools, and understanding financial risks. However, educational frameworks in V4 countries often lag, resulting in disparities in financial security and digital inclusion. The project develops a practical, evidence-based framework to measure and improve
               <b>financial digital literacy</b>—the ability to navigate modern digital financial services,
               recognize manipulative content, and make safe, informed choices in online environments.
             </p>
@@ -328,7 +342,6 @@
               <a class="btn" href="#contact"><span class="ic">@</span> Contact the team</a>
             </div>
           </div>
-          <!-- hero-side removed (Scope/Core pillars/Focus/Methods) -->
         </div>
       </div>
     </section>
@@ -339,10 +352,10 @@
           <div class="card panel col-8">
             <h2>About the project</h2>
             <p>
-This project helps people in the V4 countries make safer and more informed financial decisions in the digital world. As online banking, payments, investing apps and financial information become part of everyday life, many users lack the practical skills needed to recognize risks, misinformation or manipulative practices. The project develops an open, university-based online platform with short, practical learning modules, simple tools and self-assessment features tailored to different age groups. 
- </p>
+              This project helps people in the V4 countries make safer and more informed financial decisions in the digital world. As online banking, payments, investing apps and financial information become part of everyday life, many users lack the practical skills needed to recognize risks, misinformation or manipulative practices. The project develops an open, university-based online platform with short, practical learning modules, simple tools and self-assessment features tailored to different age groups.
+            </p>
             <p>
-By combining data-driven analysis with hands-on digital education, the project strengthens financial digital skills, reduces vulnerability to scams, and supports inclusion and trust in modern financial services across the V4 region.
+              By combining data-driven analysis with hands-on digital education, the project strengthens financial digital skills, reduces vulnerability to scams, and supports inclusion and trust in modern financial services across the V4 region.
             </p>
             <div class="chips">
               <span class="chip">financial digital skills</span>
@@ -358,8 +371,65 @@ By combining data-driven analysis with hands-on digital education, the project s
             <p class="mini"><b>Project title:</b> Enhancing Financial Digital Literacy in the V4</p>
             <p class="mini"><b>Tagline:</b> Building Digital Competencies for Financial Security</p>
             <p class="mini"><b>Region:</b> Czechia • Slovakia • Poland • Hungary</p>
-    <p class="mini"><b>Implementation period:</b> 01/02/2026–31/07/2027</p>
-            </p>
+            <p class="mini"><b>Implementation period:</b> 01/02/2026–31/07/2027</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="news" class="section">
+      <div class="wrap">
+        <div class="grid">
+          <div class="card panel col-12">
+            <h2>News</h2>
+
+            <div class="news-grid">
+              <div class="card panel">
+                <h3>🚀 Kick-off Meeting Successfully Held in Gdańsk</h3>
+                <p class="mini"><b>Date:</b> April 17, 2026</p>
+                <p class="mini"><b>Location:</b> Gdańsk University of Technology, Poland</p>
+
+                <div class="hr"></div>
+
+                <p>
+                  The project <b>“Enhancing Financial Digital Literacy in the V4: Building Digital Competencies for Financial Security”</b>
+                  officially started with its first kick-off working meeting held at the Gdańsk University of Technology.
+                </p>
+
+                <p>
+                  The meeting brought together representatives from all partner institutions:
+                  Bratislava University of Economics and Business, Brno University of Technology,
+                  Gdańsk University of Technology, and Széchenyi István University.
+                </p>
+
+                <p>
+                  Partners focused on defining tasks for the initial project phase, clarifying roles and responsibilities,
+                  setting up communication protocols, and preparing upcoming workshops and training activities.
+                </p>
+
+                <p>
+                  The meeting concluded with agreed next steps and a shared understanding of how the partners will cooperate
+                  throughout the project implementation.
+                </p>
+
+                <div class="hr"></div>
+
+                <p class="mini">
+                  📄 More details in the official programme:
+                  <a href="assets/kick-off working meeting programme-1.pdf" target="_blank" rel="noopener">
+                    View programme
+                  </a>
+                </p>
+              </div>
+
+              <div>
+                <img class="news-img" src="assets/kickoff.jpg" alt="Kick-off meeting in Gdańsk" />
+                <p class="mini" style="margin-top:8px;">
+                  First in-person working meeting of the Visegrad project partners in Gdańsk.
+                </p>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -381,8 +451,7 @@ By combining data-driven analysis with hands-on digital education, the project s
           <div class="card panel col-6">
             <h2>Why it matters</h2>
             <ul class="list">
-              <li>Poor financial-digital skills increase individual losses, exposure to scams and inefficient financial decisions.
-</li>
+              <li>Poor financial-digital skills increase individual losses, exposure to scams and inefficient financial decisions.</li>
               <li>Better literacy improves consumer protection, trust and inclusion, especially for young and vulnerable groups.</li>
               <li>Comparable data (FDLI) enables evidence-based education and policy across the V4 region.</li>
               <li>Stronger financial-digital competencies support more stable, resilient and competitive economies.</li>
@@ -456,9 +525,6 @@ By combining data-driven analysis with hands-on digital education, the project s
                 <a href="https://admissions.sze.hu/welcome" target="_blank" rel="noopener">https://admissions.sze.hu/welcome</a>
               </div>
             </div>
-
-            <p class="mini" style="margin-top:10px;">
-                         </p>
           </div>
         </div>
       </div>
@@ -472,7 +538,6 @@ By combining data-driven analysis with hands-on digital education, the project s
 
             <div class="funding">
               <div class="funding-left">
-                <!-- Put the official logo file into /assets/visegradfund3-logo.jpg -->
                 <img src="assets/visegradfund3-logo.jpg" alt="International Visegrad Fund logo" />
                 <div class="f-title">
                   <strong>Supported by the International Visegrad Fund</strong>
